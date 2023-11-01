@@ -51,3 +51,31 @@ def border(pixels, color):
       new_pixels[row][col] = color
 
   return new_pixels
+
+
+
+def rotate_180(pixels):
+  new_pixels = copy.deepcopy(pixels)
+  top = 0
+  bottom = len(pixels) - 1
+  while bottom > top:
+    # new_pixels[top], new_pixels[bottom] = new_pixels[bottom], new_pixels[top]
+    temp = new_pixels[top] 
+    new_pixels[top] = new_pixels[bottom]
+    new_pixels[bottom] = temp
+
+    bottom -= 1
+    top += 1
+
+  for row in range(len(pixels)):
+    left = 0
+    right = len(pixels[0]) - 1
+    while right > left:
+      # new_pixels[row][l], new_pixels[row][r] = new_pixels[row][r], new_pixels[row][l]
+      temp = new_pixels[row][left]
+      new_pixels[row][left] = new_pixels[row][right]
+      new_pixels[row][right] = temp
+      right -= 1
+      left += 1
+
+  return new_pixels
