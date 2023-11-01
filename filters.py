@@ -29,3 +29,25 @@ def red_stripes(pixels):
         new_pixels[row][col] = [r, g, b]
       
   return new_pixels
+
+
+def border(pixels, color):
+  new_pixels = copy.deepcopy(pixels)
+
+  for row in range(30):
+    for col in range(len(pixels[row])):
+      new_pixels[row][col] = color
+  
+  for row in range(len(pixels)):
+    for col in range(30):
+      new_pixels[row][col] = color
+  
+  for row in range(len(pixels)):
+    for col in range(len(pixels[row])-30, len(pixels[row])):
+      new_pixels[row][col] = color
+  
+  for row in range(len(pixels) - 30, len(pixels)):
+    for col in range(len(pixels[row])):
+      new_pixels[row][col] = color
+
+  return new_pixels
