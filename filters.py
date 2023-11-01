@@ -79,3 +79,13 @@ def rotate_180(pixels):
       left += 1
 
   return new_pixels
+
+
+
+
+pb_img = Image.open("fisk_gate.png")
+pixels = image_to_list(pb_img)
+
+# Save an image
+new_pb_img = list_to_image(changed_pixels)
+new_pb_img.save("fisk_gate_new.png")
